@@ -1,0 +1,7 @@
+{
+  "ConnectionStrings": {
+    "DefaultConnection": "Server=(localdb)\\MSSQLLocalDB;Database=dbStudy;Trusted_Connection=True;MultipleActiveResultSets=true"
+  }
+  
+
+}

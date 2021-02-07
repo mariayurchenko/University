@@ -1,0 +1,130 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification\ 
+for details on configuring this project to bundle and minify static web assets. */
+body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+    background: rgb(30, 30, 30);
+}
+
+th {
+    font-weight: normal;
+    color: #039;
+    border-bottom: 1px dashed #69c;
+    padding: 12px 17px;
+}
+td {
+    color: #669;
+    padding: 7px 17px;
+}
+tr:hover td {background: #ccddff;}
+
+
+a.delete {
+    position: relative;
+    display: inline-block;
+    font-size: 90%;
+    font-weight: 700;
+    color: rgb(209,209,217);
+    text-decoration: none;
+    text-shadow: 0 -1px 2px rgba(0,0,0,.2);
+    padding: .5em 1em;
+    outline: none;
+    border-radius: 3px;
+    background: linear-gradient(rgb(110,112,120), rgb(81,81,86)) rgb(110,112,120);
+    box-shadow:
+              0 1px rgba(255,255,255,.2) inset,
+              0 3px 5px rgba(0,1,6,.5),
+              0 0 1px 1px rgba(0,1,6,.2);
+    transition: .2s ease-in-out;
+} 
+
+.back {
+    width: 100px;
+    height: 30px;
+    color: white;
+    text-decoration: none;
+    border-radius: 3px;
+    background: rgb(194, 45, 45);
+    transition: 0.2s;
+}
+    .back:hover {
+        background: rgb(183, 36, 36);
+    }
+    .back:active {
+        background: rgb(173, 36, 36);
+        box-shadow: 0 3px rgb(173, 36, 36) inset;
+    }
+.save {
+    width: 100px;
+    height: 30px;
+    color: white;
+    text-decoration: none;
+    border-radius: 3px;
+    background: rgb(53,167,110);
+    transition: 0.2s;
+}
+    .save:hover {
+        background: rgb(43,167,110);
+    }
+    .save:active {
+        background: rgb(33,147,90);
+        box-shadow: 0 3px rgb(33,147,90) inset;
+    }
+a.add {
+    text-decoration: none; 
+    position: relative;
+    display: inline-block;
+    font-size: 90%;
+    font-weight: 700;
+    color: rgb(209,209,217);
+    text-shadow: 0 -1px 2px rgba(0,0,0,.2);
+    padding: .5em 1em;
+    outline: none;
+    border-radius: 3px;
+    background: linear-gradient(rgb(110,112,120), rgb(81,81,86)) rgb(110,112,120);
+    box-shadow:
+              0 1px rgba(255,255,255,.2) inset,
+              0 3px 5px rgba(0,1,6,.5),
+              0 0 1px 1px rgba(0,1,6,.2);
+    transition: .2s ease-in-out;
+}
+    a.add:hover:not(:active) {
+        background: linear-gradient(rgb(126,126,134), rgb(70,71,76)) rgb(126,126,134);
+    }
+    a.add:active {
+        top: 1px;
+        background: linear-gradient(rgb(76,77,82), rgb(56,57,62)) rgb(76,77,82);
+        box-shadow: 0 0 1px rgba(0,0,0,.5) inset, 0 2px 3px rgba(0,0,0,.5) inset, 0 1px 1px rgba(255,255,255,.1);
+    }
+
+/* Wrapping element */
+/* Set some basic padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+
+}
+
+/* Carousel */
+.carousel-caption p {
+    font-size: 20px;
+    line-height: 1.4;
+}
+
+/* Make .svg files in the carousel display properly in older browsers */
+.carousel-inner .item img[src$=".svg"] {
+    width: 100%;
+}
+
+/* QR code generator */
+#qrCode {
+    margin: 15px;
+}
+
+/* Hide/rearrange for smaller screens */
+@media screen and (max-width: 767px) {
+    /* Hide captions */
+    .carousel-caption {
+        display: none;
+    }
+}

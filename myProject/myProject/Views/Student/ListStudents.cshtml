@@ -1,0 +1,66 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@addTagHelper *, myProject
+<br>
+<a class="add" asp-controller="Student" asp-action="CreateStudent" asp-route-idG="@ViewBag.idG" asp-route-idC="@ViewBag.idC">Add new student</a>
+<h2>All students:</h2>
+
+<table class="list">
+    @{
+        <tr>
+            <td>First name</td>
+            <td>Last name</td>
+            @if (@ViewBag.idG == null)
+            {
+                <td>Course</td>
+                <td>Group</td>
+            }
+        </tr>
+        foreach (var student in Model)
+        {
+            <tr>
+                <td>@student.FIRST_NAME</td>
+                <td>@student.LAST_NAME</td>
+                @if (@ViewBag.idG == null)
+                {
+
+                    foreach (var group in ViewBag.Groups)
+                    {
+                        if (group.GROUP_ID == student.GROUP_ID)
+                        {
+                            foreach (var course in ViewBag.Courses)
+                            {
+                                if (course.COURSE_ID == group.COURSE_ID)
+                                {
+                                    <td>@course.NAME</td>
+                                }
+                            }
+                            <td>@group.NAME</td>
+                        }
+                    }
+
+                }
+                <td>
+                    <a class="delete" asp-action="EditStudent" asp-route-idS="@student.STUDENT_ID" asp-route-idG="@ViewBag.idG" asp-route-idC="@ViewBag.idC">Edit</a>
+                    <a class="delete" asp-action="DeleteStudent" asp-route-idS="@student.STUDENT_ID" asp-route-idG="@ViewBag.idG" asp-route-idC="@ViewBag.idC">Delete</a>
+                </td>
+            </tr>
+        }
+    }
+</table>
+<br>
+@{
+    if (@ViewBag.idG != null)
+    {
+        if (ViewBag.idC == null)
+        {
+            <button class="back" onclick="document.location='/Group/ListGroups'">Back</button>
+        }
+        else
+        {
+            <button class="back" onclick="document.location='/Group/ListGroups/'+@ViewBag.idC">Back</button>
+        }
+    }
+
+}
+
+

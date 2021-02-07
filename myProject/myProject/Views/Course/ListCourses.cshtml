@@ -1,0 +1,26 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@addTagHelper *, myProject
+<br>
+<a class="add" asp-controller="Course" asp-action="CreateCourse">Add new course</a>
+<h2>All courses:</h2>
+<table class="list">
+    @{
+        <tr>
+            <td>Name</td>
+            <td>Description</td>
+        </tr>
+        foreach (var course in Model)
+        {
+            <tr>
+                <td> @course.NAME</td>
+                <td>@course.DESCRIPTION</td>
+                <td>
+                    <a class="delete" asp-action="EditCourse" asp-route-id="@course.COURSE_ID">Edit</a> 
+                    <a class="delete" asp-controller="Group" asp-action="ListGroups" asp-route-id="@course.COURSE_ID" >Deteils</a>
+                    <a class="delete" asp-action="DeleteCourse" asp-route-id="@course.COURSE_ID">Delete</a>
+                </td>
+            </tr>
+        }
+    }
+
+</table>

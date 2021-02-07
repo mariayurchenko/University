@@ -1,0 +1,51 @@
+﻿@model myProject.Data.Models.Student
+<style>
+    .input-validation-error {
+        border-color: red;
+        border-width: 3px;
+    }
+</style>
+<h4>Student editing:</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="EditStudent">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="STUDENT_ID" />
+            <div class="form-group">
+                <label asp-for="GROUP_ID" class="control-label"></label>
+                <select asp-for="GROUP_ID" class="form-control" asp-items="ViewBag.GROUP_ID"></select>
+                <span asp-validation-for="GROUP_ID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FIRST_NAME" class="control-label"></label>
+                <input asp-for="FIRST_NAME" class="form-control" />
+                <span asp-validation-for="FIRST_NAME" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LAST_NAME" class="control-label"></label>
+                <input asp-for="LAST_NAME" class="form-control" />
+                <span asp-validation-for="LAST_NAME" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="save" />
+            </div>
+            <div>            
+                <input type="hidden" value="@ViewBag.idG" name="idG" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    @{
+        if (@ViewBag.idG != null)
+        {
+            <button class="back" onclick="document.location='/Student/ListStudents/?idG='+@ViewBag.idG+'&idC='+@ViewBag.idC">Back</button>
+        }
+        else
+        {
+            <button class="back" onclick="document.location = '/Student/ListStudents'">Back</button>
+        }
+    }
+</div>

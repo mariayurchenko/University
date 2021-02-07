@@ -1,0 +1,47 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@addTagHelper *, myProject
+<br>
+<a class="add" asp-controller="Group" asp-action="CreateGroup" asp-route-id="@ViewBag.idC">Add new group</a>
+<h2>All groups:</h2>
+<table class="list">
+    @{
+        <tr>
+            <td>Name</td>
+            @if (@ViewBag.idC == null)
+            {
+                <td>Course</td>
+            }
+        </tr>
+        foreach (var group in Model)
+        {
+            <tr>
+                <td> @group.NAME</td>
+                @if (ViewBag.idC == null)
+                {
+                    foreach (var course in ViewBag.Courses)
+                    {
+                        if (course.COURSE_ID == group.COURSE_ID)
+                        {
+                            <td>@course.NAME</td>
+                        }
+                    }
+                }
+                <td>
+                    <a class="delete" asp-action="EditGroup" asp-route-idG="@group.GROUP_ID" asp-route-idC="@ViewBag.idC">Edit</a>
+                    <a class="delete" asp-controller="Student" asp-action="ListStudents" asp-route-idG="@group.GROUP_ID" asp-route-idC="@ViewBag.idC">Deteils</a>
+                    <a class="delete" asp-action="DeleteGroup" asp-route-idG="@group.GROUP_ID" asp-route-idC="@ViewBag.idC">Delete</a>
+                </td>
+                           
+            </tr>
+        }
+    }
+</table>
+<br>
+<div>
+    @if(ViewBag.idC != null)
+    {
+    <button class="back" onclick="document.location = '/Course/ListCourses'">Back</button>
+    }
+</div>
+
+
